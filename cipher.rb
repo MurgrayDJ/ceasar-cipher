@@ -12,8 +12,19 @@ class String
     end
 end
 
-print "Text to cipher: "
-orig_string = gets
+def get_text
+    print "Text to cipher: "
+    orig_string = gets
+end
 
-print "Letters to shift: "
-shift_num = gets
+def get_shift_num
+    print "Shift number: "
+    shift_num = gets
+end
+
+def run_program
+    get_text
+    get_shift_num
+end
+
+run_program
