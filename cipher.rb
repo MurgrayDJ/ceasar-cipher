@@ -10,8 +10,14 @@ end
 
 def get_shift_num(orig_string)
     print "Shift number: "
-    shift_num = gets.to_i
-    cipher(orig_string, shift_num)
+    shift_num = gets
+
+   while shift_num.to_i == 0 do
+        print "Shift number: "
+        shift_num = gets
+    end
+
+    cipher(orig_string, shift_num.to_i)
 end
 
 def convert_char(ltr_array, current_char, shift_num)
