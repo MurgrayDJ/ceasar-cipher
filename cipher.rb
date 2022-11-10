@@ -43,28 +43,43 @@ def cipher(orig_string, shift_num)
     ciper_arr = [new_string, shift_num]
 end
 
-def decipher(new_string, shift_num)
-    print "Decipher text? (Y/N): "
+def get_confirmation(prompt)
+    print prompt
     answer = gets.upcase.chomp
-    deciphered_string = ''
 
     until (answer == "Y" || answer == "N") do
-        print "Decipher text? (Y/N): "
+        print prompt
         answer = gets.upcase.chomp
     end
+
+    answer
+end
+
+def decipher(new_string, shift_num)
+    answer = get_confirmation("Decipher text? (Y/N): ")
+    deciphered_string = ''
 
     if answer == "Y"
         deciph_array = cipher(new_string, shift_num * -1)
         puts "Deciphered text: #{deciph_array[0]}"
     else
-        puts "Okay! Thanks for coming by!"
+        puts "==End of cipher=="
     end
 end
 
 def run_program
+    puts "==============================="
     ciph_array = get_text
     puts "Ciphered Text: #{ciph_array[0]}"
     decipher(ciph_array[0], ciph_array[1])
+
+    answer = get_confirmation("Restart program? (Y/N): ")
+
+    if answer == "Y"
+        run_program
+    else
+        puts "Okay! Thanks for coming by!"
+    end
 end
 
 run_program
