@@ -4,13 +4,13 @@
 
 def get_text
     print "Text to cipher: "
-    orig_string = gets
+    orig_string = gets.chomp
     get_shift_num(orig_string)
 end
 
 def get_shift_num(orig_string)
     print "Shift number: "
-    shift_num = gets
+    shift_num = gets.chomp
 
    while shift_num.to_i == 0 do
         print "Shift number: "
@@ -39,11 +39,32 @@ def cipher(orig_string, shift_num)
             new_string << current_char
         end
     end
-    puts new_string
+    #puts new_string
+    ciper_arr = [new_string, shift_num]
+end
+
+def decipher(new_string, shift_num)
+    print "Decipher text? (Y/N): "
+    answer = gets.upcase.chomp
+    deciphered_string = ''
+
+    until (answer == "Y" || answer == "N") do
+        print "Decipher text? (Y/N): "
+        answer = gets.upcase.chomp
+    end
+
+    if answer == "Y"
+        deciph_array = cipher(new_string, shift_num * -1)
+        puts "Deciphered text: #{deciph_array[0]}"
+    else
+        puts "Okay! Thanks for coming by!"
+    end
 end
 
 def run_program
-    get_text
+    ciph_array = get_text
+    puts "Ciphered Text: #{ciph_array[0]}"
+    decipher(ciph_array[0], ciph_array[1])
 end
 
 run_program
