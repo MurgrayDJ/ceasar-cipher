@@ -23,5 +23,9 @@ describe Cipher do
     it "does not shift numbers or symbols" do
       expect(subject.cipher("$99.^!", 2)[0]).to eql("$99.^!")
     end
+
+    it "wraps from z to a" do
+      expect(subject.cipher("wxyz", 4)[0]).to eql("abcd")
+    end
   end
 end
