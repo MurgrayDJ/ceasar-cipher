@@ -11,5 +11,9 @@ describe Cipher do
     it "shifts numbers backwards by 3" do
       expect(subject.cipher("pretty", -3)[0]).to eql("mobqqv")
     end
+
+    it "does nothing if string is empty" do
+      expect(subject.cipher("", -3)[0]).to eql("")
+    end
   end
 end
