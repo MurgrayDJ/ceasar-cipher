@@ -7,5 +7,9 @@ describe Cipher do
     it "shifts numbers over by 1" do
       expect(subject.cipher("hello", 1)[0]).to eql("ifmmp")
     end
+
+    it "shifts numbers backwards by 3" do
+      expect(subject.cipher("pretty", -3)[0]).to eql("mobqqv")
+    end
   end
 end
