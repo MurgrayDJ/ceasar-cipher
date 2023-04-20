@@ -27,5 +27,9 @@ describe Cipher do
     it "wraps from z to a" do
       expect(subject.cipher("wxyz", 4)[0]).to eql("abcd")
     end
+
+    it "does not change case" do
+      expect(subject.cipher("HeLlO", 1)[0]).to eql("IfMmP")
+    end
   end
 end
