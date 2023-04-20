@@ -16,8 +16,12 @@ describe Cipher do
       expect(subject.cipher("", -3)[0]).to eql("")
     end
 
-    it "returns the same string is shift is 0" do
+    it "returns the same string if shift is 0" do
       expect(subject.cipher("hiya", 0)[0]).to eql("hiya")
+    end
+
+    it "does not shift numbers or symbols" do
+      expect(subject.cipher("$99.^!", 2)[0]).to eql("$99.^!")
     end
   end
 end
