@@ -15,5 +15,9 @@ describe Cipher do
     it "does nothing if string is empty" do
       expect(subject.cipher("", -3)[0]).to eql("")
     end
+
+    it "returns the same string is shift is 0" do
+      expect(subject.cipher("hiya", 0)[0]).to eql("hiya")
+    end
   end
 end
