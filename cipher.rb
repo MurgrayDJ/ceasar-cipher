@@ -84,5 +84,6 @@ class Cipher
     end
 end
 
+#Comment out to run tests
 cipher = Cipher.new
 cipher.run_program
